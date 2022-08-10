@@ -1,0 +1,30 @@
+{
+  "name": "projeto---artigo",
+  "version": "1.0.0",
+  "description": "Este projeto visa a implementação do Cucumber e Allure Eport",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open",
+    "cy:run": "cypress run --config video=false --env allure=true",
+    "allure:generate": "allure generate allure-results",
+    "allure:open": "allure open allure-report",
+    "allure:clear": "rm -r allure-results/ allure-report || true",
+    "allure:test": "npm-run-all allure:clear cy:run allure:generate"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/steps"
+  },
+  "keywords": [
+    "Cypress",
+    "Cucumber",
+    "Allure"
+  ],
+  "author": "Fernando Hessel",
+  "license": "MIT",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.28.4",
+    "cypress": "^9.7.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "npm-run-all": "^4.1.5"
+  }
+}
